@@ -51,8 +51,6 @@ while True:
         nbr = clf.predict(roi_hog_fd)
         cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
-    cv2.namedWindow("Resulting Image with Rectangular ROIs", cv2.WINDOW_NORMAL)
-    cv2.imshow("Resulting Image with Rectangular ROIs", cv2.resize(im,(800,600)))
-    if cv2.waitKey(25) & 0xFF == ord('q'):
-        cv2.destroyAllWindows()
-        break
+        cv2.namedWindow("Resulting Image with Rectangular ROIs", cv2.WINDOW_NORMAL)
+    cv2.imshow("Resulting Image with Rectangular ROIs", im)
+    cv2.waitKey()
