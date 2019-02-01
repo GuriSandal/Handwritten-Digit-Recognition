@@ -3,21 +3,21 @@ import cv2
 from sklearn.externals import joblib
 from skimage.feature import hog
 import numpy as np
-#import argparse as ap
+import argparse as ap
 import tensorflow as tf
 
-cap = cv2.VideoCapture(0)
-#parser = ap.ArgumentParser()
-#parser.add_argument("-c", "--classiferPath", help="Path to Classifier File", required="True")
-#parser.add_argument("-i", "--image", help="Path to Image", required="True")
-#args = vars(parser.parse_args())
+#cap = cv2.VideoCapture(0)
+parser = ap.ArgumentParser()
+parser.add_argument("-c", "--classiferPath", help="Path to Classifier File", required="True")
+parser.add_argument("-i", "--image", help="Path to Image", required="True")
+args = vars(parser.parse_args())
 
 
-#clf,pp = joblib.load(args["classiferPath"])
-clf,pp = joblib.load('digits_cls.pkl')
-#clf = tf.keras.models.load_model(args["classiferPath"])
+clf,pp = joblib.load(args["classiferPath"])
+#clf,pp = joblib.load('digits_cls.pkl')
+clf = tf.keras.models.load_model(args["classiferPath"])
 
-#im = cv2.imread(args["image"])
+im = cv2.imread(args["image"])
 while True:
     ret, im = cap.read()
 
